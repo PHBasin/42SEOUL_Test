@@ -83,20 +83,6 @@ test_c_exercise() {
     rm -rf test_ex$1 utest
 }
 
-test_norminette() {
-    for I in $(seq $1 $2)
-    do
-        find ./$(printf "ex%02d" $I) -name "*.c" -print | xargs norminette -R CheckForbiddenSourceHeader
-    done
-}
-
-test_norminette_real() {
-    for I in $(seq $1 $2)
-    do
-        find ./$(printf "ex%02d" $I) \( -name "*.c" -o -name "*.h" \) -print | xargs norminette
-    done
-}
-
 run_shell_prepare() {
     if [ -f $DIR/$PROJECT/$(printf "ex%02dprepare.sh" "$1") ]
     then
@@ -168,9 +154,9 @@ then
     tar -xf testShell00.tar
     ls -l testShell00
     echo
-    echo "- 파일 퍼미션 확인: -r--r-xr-x"
-    echo "- 파일 사이즈 확인: 40"
-    echo "- 파일 날짜  확인: Jun 1 23:42 or 6 1 23:42"
+    echo "- Check file permissions: -r--r-xr-x"
+    echo "- Check file size: 40"
+    echo "- Check file date: Jun 1 23:42 or 6 1 23:42"
     rm -rf testShell00
     cd ..
     echo
@@ -182,7 +168,7 @@ then
     tar -xf exo2.tar
     ls -l | grep -v "exo2.tar"
     echo
-    echo " == 올바른 값 비교 =="
+    echo " == Compare correct values =="
     echo total XXXX
     echo "drwx--xr-x  2 "$USER"  2020_seoul    ??  6  1 20:47 test0"
     echo "-rwx--xr--  1 "$USER"  2020_seoul     4  6  1 21:46 test1"
@@ -229,7 +215,6 @@ then
 elif [[ $PROJECT == "C00" ]]
 then
     MAX_EXERCISE=8
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -239,7 +224,6 @@ then
 elif [[ $PROJECT == "C01" ]]
 then
     MAX_EXERCISE=8
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -249,7 +233,6 @@ then
 elif [[ $PROJECT == "C02" ]]
 then
     MAX_EXERCISE=11
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -263,7 +246,6 @@ then
 elif [[ $PROJECT == "C03" ]]
 then
     MAX_EXERCISE=5
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -273,7 +255,6 @@ then
 elif [[ $PROJECT == "C04" ]]
 then
     MAX_EXERCISE=5
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -283,7 +264,6 @@ then
 elif [[ $PROJECT == "C05" ]]
 then
     MAX_EXERCISE=7
-    test_norminette 7 $MAX_EXERCISE
     for I in $(seq 7 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -293,7 +273,6 @@ then
 elif [[ $PROJECT == "C06" ]]
 then
     MAX_EXERCISE=3
-    test_norminette 0 $MAX_EXERCISE
     test_c_exercise 00
     test_c_exercise 01 "test0 test1 test2 test3 teset2 test1 asda"
     test_c_exercise 02 "test0 test1 test2 test3 teset2 test1 asda"
@@ -303,7 +282,6 @@ then
 elif [[ $PROJECT == "C07" ]]
 then
     MAX_EXERCISE=5
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -313,7 +291,6 @@ then
 elif [[ $PROJECT == "C08" ]]
 then
     MAX_EXERCISE=5
-    test_norminette_real 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -324,14 +301,12 @@ elif [[ $PROJECT == "C09" ]]
 then
     # TODO Test C09-ex00 (libft_creator.sh)
     # TODO Test C09-ex01 (Makefile)
-    test_norminette_real 2 2
     test_c_exercise 02
 
 
 elif [[ $PROJECT == "C10" ]]
 then
     MAX_EXERCISE=3
-    test_norminette_real 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_program_exercise $(printf "%02d" "$I")
@@ -340,7 +315,6 @@ then
 
 elif [[ $PROJECT == "C11" ]]
 then
-    test_norminette_real 0 7
     test_c_exercise 00
     test_c_exercise 01
     test_c_exercise 02
