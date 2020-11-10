@@ -1,6 +1,6 @@
-# Install
+## Install
 
-1. clone the repository
+1. Clone the repository
 ```bash
 git clone https://github.com/T2SU/piscine-test.git
 ```
@@ -17,7 +17,7 @@ or
 echo "alias ptest=\"bash $(echo $(pwd)/test.sh)\"" >> ~/.zshrc
 ```
 
-# How to use
+## How to use
 
 1. Go to your exercises folder
 ```bash
