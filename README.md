@@ -2,7 +2,7 @@
 
 1. Clone the repository
 ```bash
-git clone https://github.com/T2SU/piscine-test.git
+git clone https://github.com/PHBasin/piscine-test.git
 ```
 
 2. Save the test script as an alias using the command below
