@@ -1,6 +1,4 @@
-## Piscine tests
-
-# install
+# Install
 
 1. clone the repository
 ```bash
@@ -10,6 +8,8 @@ git clone https://github.com/T2SU/piscine-test.git
 2. Save the test script as an alias using the command below
 ```bash
 cd piscine-test
+```
+```
 alias ptest="bash $(echo $(pwd)/test.sh)"
 ```
 or
