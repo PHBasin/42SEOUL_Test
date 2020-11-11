@@ -8,7 +8,7 @@ export PROJECT=$1
 export PRINT_RESULT=$2
 
 compile() {
-    gcc -Wall -Wextra -w -o test_ex$1 -I$(pwd)/ex$1 $DIR/$PROJECT/ex$1*.c $(find ex$1 -name *.c -print | xargs printf "%s ")
+    gcc -Wall -Wextra -Werror -o test_ex$1 -I$(pwd)/ex$1 $DIR/$PROJECT/ex$1*.c $(find ex$1 -name *.c -print | xargs printf "%s ")
 }
 
 test_program_exercise() {

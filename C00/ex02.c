@@ -1,8 +1,9 @@
 
-void ft_print_reverse_alphabet(void);
-int main(void)
+void	ft_print_reverse_alphabet(void);
+
+int		main(void)
 {
-    ft_print_reverse_alphabet();
-    return 0;
+	ft_print_reverse_alphabet();
+	return (0);
 }
 

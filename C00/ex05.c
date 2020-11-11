@@ -1,8 +1,8 @@
+void	ft_print_comb(void);
 
-void ft_print_comb(void);
-int main(void)
+int		main(void)
 {
-    ft_print_comb();
-    return 0;
+	ft_print_comb();
+	return (0);
 }
 

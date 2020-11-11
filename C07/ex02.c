@@ -16,13 +16,12 @@ void do_test(int min, int max)
 
 int main(void)
 {
-	int *p;
+	int *p = NULL;
 	printf("ft_ultimate_range(&p, 0, 0): %d, %p\n", ft_ultimate_range(&p, 0, 0), p);
 	printf("ft_ultimate_range(&p, 1, 0): %d, %p\n", ft_ultimate_range(&p, 1, 0), p);
 	printf("ft_ultimate_range(&p, 2, 0): %d, %p\n", ft_ultimate_range(&p, 1, 0), p);
-	printf("ft_ultimate_range(&p, 0, 3): %d, %d\n", ft_ultimate_range(&p, 0, 3), p > 0);
-	printf("ft_ultimate_range(&p, 2, 5122): %d, %d\n", ft_ultimate_range(&p, 2, 5122), p > 0);
-	// printf("ft_range(0, 2147483647): %p\n", ft_range(0, 2147483647));
+	printf("ft_ultimate_range(&p, 0, 3): %d, %d\n", ft_ultimate_range(&p, 0, 3), p > (int *)0);
+	printf("ft_ultimate_range(&p, 2, 5122): %d, %d\n", ft_ultimate_range(&p, 2, 5122), p > (int *)0);
 	do_test(-5, 5);
 	do_test(-10, 10);
 	do_test(34, 45);
