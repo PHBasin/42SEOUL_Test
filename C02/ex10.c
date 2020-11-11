@@ -1,6 +1,6 @@
-
 #include <stdio.h>
-#include <string.h>
+#include <bsd/string.h>
+
 unsigned int ft_strlcpy(char *src, char* dest, unsigned int size);
 int main(void)
 {

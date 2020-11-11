@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo "C Piscine Project Test Script"
 echo "    by.   smun"
 echo
@@ -7,7 +8,7 @@ export PROJECT=$1
 export PRINT_RESULT=$2
 
 compile() {
-    gcc -Wall -Wextra -Werror -o test_ex$1 -I$(pwd)/ex$1 $DIR/$PROJECT/ex$1*.c $(find ex$1 -name *.c -print | xargs printf "%s ")
+    gcc -Wall -Wextra -w -o test_ex$1 -I$(pwd)/ex$1 $DIR/$PROJECT/ex$1*.c $(find ex$1 -name *.c -print | xargs printf "%s ")
 }
 
 test_program_exercise() {
@@ -81,20 +82,6 @@ test_c_exercise() {
 
     echo
     rm -rf test_ex$1 utest
-}
-
-test_norminette() {
-    for I in $(seq $1 $2)
-    do
-        find ./$(printf "ex%02d" $I) -name "*.c" -print | xargs norminette -R CheckForbiddenSourceHeader
-    done
-}
-
-test_norminette_real() {
-    for I in $(seq $1 $2)
-    do
-        find ./$(printf "ex%02d" $I) \( -name "*.c" -o -name "*.h" \) -print | xargs norminette
-    done
 }
 
 run_shell_prepare() {
@@ -229,7 +216,6 @@ then
 elif [[ $PROJECT == "C00" ]]
 then
     MAX_EXERCISE=8
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -239,7 +225,6 @@ then
 elif [[ $PROJECT == "C01" ]]
 then
     MAX_EXERCISE=8
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -249,7 +234,6 @@ then
 elif [[ $PROJECT == "C02" ]]
 then
     MAX_EXERCISE=11
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -263,7 +247,6 @@ then
 elif [[ $PROJECT == "C03" ]]
 then
     MAX_EXERCISE=5
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -273,7 +256,6 @@ then
 elif [[ $PROJECT == "C04" ]]
 then
     MAX_EXERCISE=5
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -283,7 +265,6 @@ then
 elif [[ $PROJECT == "C05" ]]
 then
     MAX_EXERCISE=7
-    test_norminette 7 $MAX_EXERCISE
     for I in $(seq 7 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -293,7 +274,6 @@ then
 elif [[ $PROJECT == "C06" ]]
 then
     MAX_EXERCISE=3
-    test_norminette 0 $MAX_EXERCISE
     test_c_exercise 00
     test_c_exercise 01 "test0 test1 test2 test3 teset2 test1 asda"
     test_c_exercise 02 "test0 test1 test2 test3 teset2 test1 asda"
@@ -303,7 +283,6 @@ then
 elif [[ $PROJECT == "C07" ]]
 then
     MAX_EXERCISE=5
-    test_norminette 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -313,7 +292,6 @@ then
 elif [[ $PROJECT == "C08" ]]
 then
     MAX_EXERCISE=5
-    test_norminette_real 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_c_exercise $(printf "%02d" "$I")
@@ -324,14 +302,12 @@ elif [[ $PROJECT == "C09" ]]
 then
     # TODO Test C09-ex00 (libft_creator.sh)
     # TODO Test C09-ex01 (Makefile)
-    test_norminette_real 2 2
     test_c_exercise 02
 
 
 elif [[ $PROJECT == "C10" ]]
 then
     MAX_EXERCISE=3
-    test_norminette_real 0 $MAX_EXERCISE
     for I in $(seq 0 $MAX_EXERCISE)
     do
         test_program_exercise $(printf "%02d" "$I")
@@ -340,7 +316,6 @@ then
 
 elif [[ $PROJECT == "C11" ]]
 then
-    test_norminette_real 0 7
     test_c_exercise 00
     test_c_exercise 01
     test_c_exercise 02
