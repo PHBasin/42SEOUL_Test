@@ -155,9 +155,9 @@ then
     tar -xf testShell00.tar
     ls -l testShell00
     echo
-    echo "- 파일 퍼미션 확인: -r--r-xr-x"
-    echo "- 파일 사이즈 확인: 40"
-    echo "- 파일 날짜  확인: Jun 1 23:42 or 6 1 23:42"
+    echo "- Check file permissions: -r--r-xr-x"
+    echo "- Check file size: 40"
+    echo "- Check file date: Jun 1 23:42 or 6 1 23:42"
     rm -rf testShell00
     cd ..
     echo
@@ -169,7 +169,7 @@ then
     tar -xf exo2.tar
     ls -l | grep -v "exo2.tar"
     echo
-    echo " == 올바른 값 비교 =="
+    echo " == Compare correct values =="
     echo total XXXX
     echo "drwx--xr-x  2 "$USER"  2020_seoul    ??  6  1 20:47 test0"
     echo "-rwx--xr--  1 "$USER"  2020_seoul     4  6  1 21:46 test1"
