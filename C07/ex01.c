@@ -17,8 +17,8 @@ int main(void)
 	printf("ft_range(0, 0): %p\n", ft_range(0, 0));
 	printf("ft_range(1, 0): %p\n", ft_range(1, 0));
 	printf("ft_range(2, 0): %p\n", ft_range(1, 0));
-	printf("ft_range(0, 3): %d\n", ft_range(0, 3));
-	printf("ft_range(2, 5122): %d\n", ft_range(2, 5122));
+	printf("ft_range(0, 3): %d\n", ft_range(0, 3) > 0);
+	printf("ft_range(2, 5122): %d\n", ft_range(2, 5122) > 0);
 	// printf("ft_range(0, 2147483647): %p\n", ft_range(0, 2147483647));
 	do_test(-5, 5);
 	do_test(-10, 10);
