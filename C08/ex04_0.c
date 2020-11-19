@@ -6,12 +6,14 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 12:26:05 by frdescam          #+#    #+#             */
-/*   Updated: 2020/07/16 17:35:31 by smun             ###   ########.fr       */
+/*   Updated: 2020/11/18 16:40:21 by phbasin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_stock_str.h"
+
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av);
 
 void	ft_putchar(char c)
 {
