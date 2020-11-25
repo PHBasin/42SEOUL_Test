@@ -4,3 +4,5 @@ echo Hello World!! >> myfile
 echo GoGoGo >> gogogo
 touch 12345
 mkdir dirtest
+touch exam
+chmod 000 exam
