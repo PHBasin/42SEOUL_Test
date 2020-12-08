@@ -51,6 +51,7 @@ test_program_exercise() {
     rm -rf utest
     make fclean
     run_shell_clean $1
+	echo
     cd ..
 }
 
@@ -198,6 +199,7 @@ then
     test_shell_exercise 7 "cat -e b"
     test_shell_exercise 8 "sh clean" prepare
     test_shell_exercise 9 "file -m ft_magic 42 24" prepare
+
 elif [[ $PROJECT == "Shell01" ]]
 then
     export FT_LINE1=3
@@ -213,6 +215,7 @@ then
     test_shell_exercise 6 "sh ./skip.sh" prepare
     test_shell_exercise 7 "sh ./r_dwssap.sh"
     test_shell_exercise 8 "sh ./add_chelou.sh"
+
 elif [[ $PROJECT == "C00" ]]
 then
     MAX_EXERCISE=8
@@ -324,5 +327,9 @@ then
     test_program_exercise 05
     test_c_exercise 06
     test_c_exercise 07
+
+elif [[ $PROJECT == "C12" ]]
+then
+    test_c_exercise 00
 
 fi
