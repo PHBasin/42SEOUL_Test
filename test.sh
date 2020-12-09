@@ -331,5 +331,6 @@ then
 elif [[ $PROJECT == "C12" ]]
 then
     test_c_exercise 00
-
+    test_c_exercise 01
+    test_c_exercise 02
 fi

@@ -1,22 +1,57 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ex01.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: phbasin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/09 08:51:02 by phbasin           #+#    #+#             */
+/*   Updated: 2020/12/09 09:14:25 by phbasin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "ft_list.h"
 
-int		*ft_map(int *tab, int length, int (*f)(int));
+void	ft_list_push_front(t_list **begin_list, void *data);
 
-int		plus_alpha(int nb)
+t_list	*ft_create_elem(void *data)
 {
-	return (nb + 100);
+	t_list *elem;
+
+	elem = malloc(sizeof(t_list));
+	if (!elem)
+		return (NULL);
+	elem->data = data;
+	elem->next = NULL;
+	return (elem);
 }
 
-int main(void)
+void	ft_putstr(char *str)
 {
-	int tab[10];
-	for (int i = 0; i < 10; i++)
-		tab[i] = i * i;
-	int *arr = ft_map(tab, 10, &plus_alpha);
-	for (int i = 0; i < 10; i++)
+	while (*str)
+		write(1, str++, 1);
+}
+
+void	print_list(t_list *list)
+{
+	while (list)
 	{
-		tab[i] = 0;
-		printf("%d\n", arr[i]);
+		ft_putstr(list->data);
+		list = list->next;
 	}
+}
+
+int		main(void)
+{
+	t_list	*list;
+	char	*str;
+
+	str = "World!\n";
+	list = ft_create_elem(str);
+	ft_list_push_front(&list, "Hello ");
+	print_list(list);
 	return (0);
 }

@@ -9,10 +9,10 @@ void	ft_putstr(char *str)
 
 int		main(void)
 {
-	char	*str;
 	t_list	*list;
+	char	*str;
 
-	str = "Hello World!";
+	str = "Hello World!\n";
 	list = ft_create_elem(str);
 	ft_putstr(list->data);
 	return (0);
